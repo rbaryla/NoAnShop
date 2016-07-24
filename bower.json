@@ -1,0 +1,30 @@
+{
+  "name": "sklep",
+  "description": "Projekt prostego sklepu",
+  "main": [
+  ],
+  "dependencies": {
+    "angular-material": "~1.0.9"
+  },
+  "devDependencies": {
+
+  },
+  "moduleType": [
+
+  ],
+  "keywords": [
+
+  ],
+  "authors": [
+    "Robert Baryła <robert@em4u.pl>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "private": true
+}
