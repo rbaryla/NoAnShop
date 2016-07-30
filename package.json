@@ -6,7 +6,8 @@
   "private": true,
   "scripts": {
     "postinstall": "bower install",
-    "start": "node ./bin/www"
+    "start": "node ./bin/www",
+    "test": "./node_modules/.bin/mocha --reporter spec"
   },
   "dependencies": {
     "body-parser": "~1.13.2",
@@ -16,5 +17,10 @@
     "hjs": "~0.0.6",
     "morgan": "~1.6.1",
     "serve-favicon": "~2.3.0"
+  },
+  "devDependencies": {
+    "mocha": "~2.5.3",
+    "chai": "~3.5.0",
+    "supertest": "~2.0.0"
   }
 }
