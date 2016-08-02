@@ -3,11 +3,13 @@ var router = express.Router();
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
-  res.send('respond with a resource api');
+  res.status(200).send('respond with a resource api');
+  next();
 });
 
 router.get('/abc', function(req, res, next) {
-  res.send('respond with a resource api abc',200);
+  res.status(200).send('respond with a resource api abc');
+  next();
 });
 
 module.exports = router;
