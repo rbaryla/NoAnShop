@@ -3,4 +3,4 @@
 node_modules/
 public/components/
 public/images/
-/config/development.json
+config/development.json
