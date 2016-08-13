@@ -10,6 +10,8 @@ var bodyParser = require('body-parser');
  */
 var config = require('./config');
 
+var db = require('./model/db')(config);
+
 var routes = require('./routes/index');
 var users = require('./routes/users');
 var api = require('./routes/api');
@@ -28,6 +30,12 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+// Dodanie danych konfiguracyjnych do obiektu Reqest
+app.use(reqSetConfig);
+
+// Dodanie obiektu bazy danych do obiektu Request
+app.use(reqSetDb);
 
 app.use('/', routes);
 app.use('/users', users);
@@ -63,6 +71,28 @@ app.use(function(err, req, res, next) {
     error: {}
   });
 });
+
+/**
+ * Funkcja pośrednicząca dodająca dane konfiguracyjne do obiektu Request.
+ * @param req Obiekt Request
+ * @param res Obiekt Response
+ * @param next Odwołanie zwrotne
+ */
+function reqSetConfig(req, res, next) {
+  req.config = config;
+  next();
+}
+
+/**
+ * Funkcja pośrednicząca dodająca obiekt db do obiektu Request
+ * @param req Obiekt Request
+ * @param res Obiekt Response
+ * @param next Odwołanie zwrotne
+ */
+function reqSetDb(req, res, next) {
+  req.db = db;
+  next();
+}
 
 
 module.exports = app;
