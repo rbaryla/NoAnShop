@@ -5,7 +5,7 @@
 /**
  * Funkcja tworzy połączenie do bazy danych na podstawie pliku konfiguracyjnego.
  * @param config Plik konfiguracyjny
- * @returns {*} mongoose.connection
+ * @returns {*} mongoose
  */
 function dbConnect(config) {
     var mongoose = require('mongoose');
@@ -13,17 +13,24 @@ function dbConnect(config) {
     // sprawdzam czy jestem połączony
 
     if (mongoose.connection.readyState===0) {
-        mongoose.connect('mongodb://localhost/test');
+        let dbConfig = config.db;
+        let host = dbConfig.host || 'localhost',
+            database = dbConfig.database || 'test',
+            port = dbConfig.port || 27017,
+            user = dbConfig.user || 'user',
+            pass = dbConfig.pass || 'pass';
+
+        mongoose.connect(`mongodb://${user}:${pass}@${host}:${port}/${database}`);
     }
 
 
-    var db = mongoose.connection;
+    let db = mongoose.connection;
     db.on('error', console.error.bind(console, 'connection error:'));
     db.once('open', function() {
         // console.info('db connected');
     });
 
-    return mongoose.connection;
+    return mongoose;
 }
 
 module.exports = dbConnect;
