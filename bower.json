@@ -1,20 +1,15 @@
 {
   "name": "noanshop",
   "description": "Projekt prostego sklepu",
-  "main": [
-  ],
+  "main": [],
   "dependencies": {
-    "angular-material": "~1.0.9"
+    "angular-material": "^1.1.0",
+    "angular": "^1.5.8",
+    "angular-route": "^1.5.8"
   },
-  "devDependencies": {
-
-  },
-  "moduleType": [
-
-  ],
-  "keywords": [
-
-  ],
+  "devDependencies": {},
+  "moduleType": [],
+  "keywords": [],
   "authors": [
     "Robert Baryła <robert@em4u.pl>"
   ],
