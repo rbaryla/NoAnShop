@@ -5,11 +5,15 @@
  */
 
 var request = require('supertest');
+var it = require('mocha/lib/mocha.js').it;
+var describe = require('mocha/lib/mocha.js').describe;
+
 describe('Serwer NodeJs Express', function () {
 
     var server = require('./../app');
 
-    it('dla adresu  / odpowiada statusem 200 z naglowkiem Content-Type text/html; charset=UTF-8', function (done) {
+    it('dla adresu  / odpowiada statusem 200 z naglowkiem Content-Type text/html; charset=UTF-8',
+        function (done) {
         request(server)
             .get('/')
             .expect('Content-Type', 'text/html; charset=UTF-8')
@@ -17,6 +21,7 @@ describe('Serwer NodeJs Express', function () {
             .end(done)
         ;
     });
+
     it('dla nieisteniejacego adresu odpowiada stausetm 404', function (done) {
         request(server)
             .get('/foo/bar')

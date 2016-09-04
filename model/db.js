@@ -4,7 +4,7 @@
 
 /**
  * Funkcja tworzy połączenie do bazy danych na podstawie pliku konfiguracyjnego.
- * @param config Plik konfiguracyjny
+ * @param {config} config Plik konfiguracyjny
  * @returns {*} mongoose
  */
 function dbConnect(config) {
@@ -12,7 +12,7 @@ function dbConnect(config) {
 
     // sprawdzam czy jestem połączony
 
-    if (mongoose.connection.readyState===0) {
+    if (mongoose.connection.readyState === 0) {
         let dbConfig = config.db;
         let host = dbConfig.host || 'localhost',
             database = dbConfig.database || 'test',
@@ -22,7 +22,6 @@ function dbConnect(config) {
 
         mongoose.connect(`mongodb://${user}:${pass}@${host}:${port}/${database}`);
     }
-
 
     let db = mongoose.connection;
     db.on('error', console.error.bind(console, 'connection error:'));
