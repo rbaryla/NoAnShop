@@ -4,3 +4,4 @@ node_modules/
 public/images/
 public/bower_components/
 config/development.json
+/public/bower_components/
