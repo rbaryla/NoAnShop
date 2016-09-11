@@ -19,7 +19,7 @@ function dbConnect(config) {
             port = dbConfig.port || 27017,
             user = dbConfig.user || 'user',
             pass = dbConfig.pass || 'pass';
-
+        mongoose.Promise = global.Promise;
         mongoose.connect(`mongodb://${user}:${pass}@${host}:${port}/${database}`);
     }
 

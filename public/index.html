@@ -5,7 +5,7 @@
     <link rel="stylesheet" href="bower_components/angular-material/angular-material.min.css">
     <link rel="stylesheet" href="stylesheets/style.css">
 </head>
-<body ng-app="NoAnShopApp" layout="column" ng-cloak >
+<body ng-app="noAnShopClient" layout="column" ng-cloak >
     <!-- Naglowek -->
     <md-toolbar class="md-whiteframe-glow-z1 site-content-toolbar" ng-controller="ToolbarController">
         <div class="md-toolbar-tools">
@@ -22,30 +22,20 @@
     <md-whiteframe class="md-whiteframe-1dp" layout layout-align="center center" layout-padding="">
         <span class="md-caption">NoAnShop v. 0.0.1</span>
     </md-whiteframe>
-<!-- Angular Material requires Angular.js Libraries -->
-<script src="bower_components/angular/angular.min.js"></script>
-<script src="bower_components/angular-animate/angular-animate.min.js"></script>
-<script src="bower_components/angular-aria/angular-aria.min.js"></script>
-<script src="bower_components/angular-messages/angular-messages.min.js"></script>
 
-<!-- Angular Material Library -->
-<script src="bower_components/angular-material/angular-material.min.js"></script>
+    <!-- Angular Material requires Angular.js Libraries -->
+    <script src="bower_components/angular/angular.min.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.min.js"></script>
+    <script src="bower_components/angular-aria/angular-aria.min.js"></script>
+    <script src="bower_components/angular-messages/angular-messages.min.js"></script>
 
-<!-- Application bootstrap  -->
-<script type="text/javascript">
+    <!-- Angular Material Library -->
+    <script src="bower_components/angular-material/angular-material.min.js"></script>
 
-    (function() {
-        var app = angular.module('NoAnShopApp', ['ngMaterial']);
-
-        app.controller('ToolbarController',['$scope', ToolbarController]);
-
-        function ToolbarController($scope) {
-            $scope.title = "Aplikacja NoAnShop";
-        }
-
-    })();
-
-</script>
+    <!-- Application bootstrap  -->
+    <script src="app/app.module.js"></script>
+    <script src="app/app.config.js"></script>
+    <script src="app/layout/toolbar.controller.js"></script>
 
 </body>
 </html>

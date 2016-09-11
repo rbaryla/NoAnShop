@@ -13,7 +13,7 @@ module.exports = function(config) {
 
         // list of files / patterns to load in the browser
         files: [
-          'test-karma/**/*Spec.js'
+          'public/app/**/*.spec.js'
         ],
 
         // list of files to exclude
